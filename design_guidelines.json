@@ -1,0 +1,109 @@
+{
+  "project_name": "KREVION Healthcare Pvt. Ltd.",
+  "theme": "light",
+  "archetype": "Swiss & High-Contrast (Clean Medical)",
+  "colors": {
+    "primary": "#0A2D6B",
+    "secondary": "#18B7B0",
+    "accent": "#36C2C1",
+    "background": {
+      "default": "#FFFFFF",
+      "muted": "#F5F7FA"
+    },
+    "text": {
+      "primary": "#2D2D2D",
+      "secondary": "#5A6B8A",
+      "inverse": "#FFFFFF",
+      "brand": "#0A2D6B"
+    },
+    "border": {
+      "default": "#E2E8F0",
+      "active": "#18B7B0"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Poppins, sans-serif",
+      "body": "Inter, sans-serif"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A2D6B] tracking-tight",
+      "h2": "text-3xl sm:text-4xl font-semibold text-[#0A2D6B] tracking-tight",
+      "h3": "text-2xl sm:text-3xl font-medium text-[#2D2D2D]",
+      "h4": "text-lg sm:text-xl font-medium text-[#2D2D2D]",
+      "body": "text-base text-[#5A6B8A] leading-relaxed",
+      "small": "text-sm text-[#5A6B8A] uppercase tracking-wider"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "section": "py-20 md:py-32",
+    "grid": {
+      "cards": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+      "bento": "grid grid-cols-1 md:grid-cols-12 gap-6"
+    }
+  },
+  "components": {
+    "buttons": {
+      "base": "inline-flex items-center justify-center font-semibold rounded-full px-8 py-4 transition-all duration-300",
+      "primary": "bg-[#0A2D6B] text-white hover:bg-[#18B7B0] hover:shadow-lg hover:-translate-y-1",
+      "secondary": "bg-[#18B7B0] text-white hover:bg-[#36C2C1] hover:shadow-lg hover:-translate-y-1",
+      "outline": "border-2 border-[#0A2D6B] text-[#0A2D6B] hover:bg-[#F5F7FA] hover:-translate-y-1"
+    },
+    "cards": {
+      "base": "bg-white rounded-2xl border border-gray-100 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300",
+      "icon_wrapper": "w-12 h-12 rounded-xl bg-[#F5F7FA] flex items-center justify-center mb-6 text-[#18B7B0]"
+    },
+    "navigation": {
+      "header": "sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 transition-all duration-300",
+      "links": "text-[#2D2D2D] font-medium hover:text-[#18B7B0] transition-colors"
+    },
+    "inputs": {
+      "base": "w-full rounded-lg border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-[#18B7B0] focus:border-transparent transition-all"
+    }
+  },
+  "motion_and_interactions": {
+    "library": "framer-motion",
+    "transitions": {
+      "default": { "type": "spring", "stiffness": 100, "damping": 20 },
+      "smooth": { "ease": [0.22, 1, 0.36, 1], "duration": 0.6 }
+    },
+    "patterns": {
+      "fade_up": { "initial": { "opacity": 0, "y": 30 }, "whileInView": { "opacity": 1, "y": 0 } },
+      "stagger_children": { "viewport": { "once": true, "margin": "-100px" } }
+    },
+    "scroll": "Use Lenis for smooth scrolling to provide a premium Fortune 500 feel."
+  },
+  "media_assets": {
+    "logo": "https://customer-assets.emergentagent.com/job_c2d9f704-c676-4d32-a34a-6ca956c7e90f/artifacts/xhtvmn6x_KREVION%20HEALTHCARE%20LOGO.png",
+    "images": {
+      "hero_background": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwzfHxwaGFybWFjZXV0aWNhbCUyMGxhYm9yYXRvcnklMjBzY2llbnRpc3R8ZW58MHx8fHwxNzgyNzIwMjg3fDA&ixlib=rb-4.1.0&q=85",
+      "laboratory": "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwxfHxwaGFybWFjZXV0aWNhbCUyMGxhYm9yYXRvcnklMjBzY2llbnRpc3R8ZW58MHx8fHwxNzgyNzIwMjg3fDA&ixlib=rb-4.1.0&q=85",
+      "manufacturing": "https://images.unsplash.com/photo-1716643863806-989dd76ae093?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxwaGFybWFjZXV0aWNhbCUyMG1hbnVmYWN0dXJpbmclMjBsaW5lfGVufDB8fHx8MTc4MjcyMDI4N3ww&ixlib=rb-4.1.0&q=85",
+      "pills_capsules": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwzfHxwaGFybWFjZXV0aWNhbCUyMHBpbGxzJTIwY2Fwc3VsZXN8ZW58MHx8fHwxNzgyNzIwMjg4fDA&ixlib=rb-4.1.0&q=85",
+      "microscope_research": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwyfHxtaWNyb3Njb3BlJTIwbGFib3JhdG9yeSUyMHJlc2VhcmNofGVufDB8fHx8MTc4MjcyMDI4N3ww&ixlib=rb-4.1.0&q=85",
+      "global_shipping": "https://images.unsplash.com/photo-1605745341112-85968b19335b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwzfHxnbG9iYWwlMjBzaGlwcGluZyUyMGNhcmdvJTIwc2hpcHxlbnwwfHx8fDE3ODI3MjAyODh8MA&ixlib=rb-4.1.0&q=85",
+      "researcher": "https://images.pexels.com/photos/3735711/pexels-photo-3735711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "icons": {
+      "library": "lucide-react",
+      "usage": "Use crisp, minimalist icons with a stroke width of 1.5. Apply the Teal (#18B7B0) color for accents."
+    }
+  },
+  "specific_page_patterns": {
+    "hero": "Split layout or overlay approach. Use a clean Light Grey (#F5F7FA) background on one side, and the hero_background image on the other, subtly tinted with Navy (#0A2D6B/10). Ensure 'Precision. Purity. Progress.' stands out in Poppins. Include an animated scroll indicator (mouse icon with bouncing dot) at the bottom.",
+    "why_choose_us": "Grid of 6 clean, minimalist cards representing USPs. Use the 'cards.base' styling. Icons should be inside 'cards.icon_wrapper'.",
+    "product_categories": "A dense but clean 15-item grid (using Tailwind grid). Each item can be a sleek card with an icon, category name (Poppins, semi-bold), and a subtle right-arrow that animates on hover.",
+    "therapeutic_segments": "Similar to product categories, perhaps a masonry or bento grid to break monotony, using high-quality images where applicable with a #0A2D6B gradient overlay.",
+    "quality_timeline": "A vertical timeline down the center. Use Framer Motion to draw the line as the user scrolls. Nodes glow Teal (#18B7B0) when active. Alternate content left and right.",
+    "export_markets_map": "Render a clean, stylized SVG world map. Highlight regions like Middle East, Africa, Asia, etc. in Teal (#18B7B0). Include tooltip interactions.",
+    "stats_counters": "Large statistical numbers text-5xl to text-6xl in #0A2D6B. Animate using a count-up effect on scroll.",
+    "forms": "Minimalist contact/quotation forms. Inputs use #F5F7FA background, subtle borders, and a floating label or clear placeholders. Submit button in #0A2D6B."
+  },
+  "technical_instructions": {
+    "files": "Use .js files exclusively (React). No TypeScript (.tsx).",
+    "testing": "All interactive and key informational elements MUST include a 'data-testid' attribute (e.g., data-testid='hero-cta-button', data-testid='nav-link-products').",
+    "accessibility": "Ensure text contrast meets WCAG 2.2 AA standards. Forms must have accessible labels. Images must have alt attributes.",
+    "ui_components": "Use pure HTML/Tailwind for custom layouts (marketing pages), and Shadcn UI (customized to match the KREVION brand) for forms, dropdowns, and complex interactive elements."
+  }
+}

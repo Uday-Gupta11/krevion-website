@@ -1,0 +1,25 @@
+{
+  "summary": "Verified all three reported bug fixes on KREVION home page + backend regression. Hero overlap fix confirmed, pharmaceutical technical terminology present in all 6 required categories, world map SVG renders 36 laser corridor paths from India (all 18 destinations with static+animated pairs) with India label. Live badge, all 6 region cards, and Products navigation all working. Backend contact/quotation/newsletter endpoints functional.",
+  "tested_scope": ["frontend", "backend", "integration"],
+  "passed": [
+    "Home page loads with 0 console errors",
+    "Hero 'Internationally Compliant Facilities' caption visible (no overlap)",
+    "Hero headline 'Delivering Trusted Healthcare Solutions Beyond Borders' visible",
+    "product-categories-grid renders with technical pharmaceutical subtitles",
+    "All 6 required technical terms present: IMMEDIATE & MODIFIED-RELEASE SOLID ORAL DOSAGE FORMS, STERILE PARENTERAL FORMULATIONS, POWDER FOR ORAL SUSPENSION (POS), OPHTHALMIC STERILE PREPARATIONS, HYDROGELS & ORGANOGELS, METERED-DOSE NASAL PREPARATIONS",
+    "world-map-svg renders with 36 laser paths (stroke #18B7B0 or url(#laser)) - well above 15 threshold",
+    "56 <animate> elements present (laser pulses + India origin ping)",
+    "India origin text label present inside SVG",
+    "'Live Export Corridors' badge visible near map",
+    "All 6 region cards present: market-middle-east, market-africa, market-asia, market-cis, market-latin-america, market-south-east-asia",
+    "nav-link-products navigates to /products page successfully",
+    "POST /api/contact returns 200",
+    "POST /api/quotation returns 200 (with required_products field)",
+    "POST /api/newsletter returns 200"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}

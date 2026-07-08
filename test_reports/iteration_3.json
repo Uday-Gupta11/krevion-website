@@ -1,0 +1,20 @@
+{
+  "summary": "Iteration 3 verified: home page compiles/loads with no console errors; Therapeutic Segments shows all 20 new items (Cardiology/Nutrition removed); Manufacturing Capabilities eyebrow + all 10 items rendered correctly; World map SVG renders with 36 paths (>=30 threshold), 4868 navy continent dots (>>200), and 'India' text; footer logo wrapped in bg-white p-2 rounded-xl container (visible); /products page loads without errors; backend /api/health, /api/contact, /api/quotation all return 200 with valid payloads.",
+  "tested_scope": ["frontend", "backend", "integration"],
+  "passed": [
+    "GET /api/health -> 200 {status:ok, service:krevion-api}",
+    "POST /api/contact -> 200 with id echoed",
+    "POST /api/quotation -> 200 with id echoed (requires country + required_products fields)",
+    "Home page loads with 0 console errors and no compile overlay",
+    "Therapeutic Segments grid renders exactly the 20 new items; 'Cardiology' and 'Nutrition' absent",
+    "Manufacturing Capabilities eyebrow ('MANUFACTURING CAPABILITIES') present; all 10 items rendered (Tablets, Capsules, Softgel Capsules, Oral Liquids, Dry Syrups, Injectables, Ointments & Creams, Gels, Eye & Ear Drops, Sachets)",
+    "World map SVG: 36 stroke paths (>=30 required for 18 destinations x 2), 4868 navy continent dots (fill #0A2D6B), 'India' text label inside SVG",
+    "Footer logo image visible inside parent with classes 'h-16 w-16 rounded-xl bg-white p-2 shadow-lg ...' (light background, not bg-white/5)",
+    "/products page loads without console errors, shows 20 products and filter dropdowns"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}
