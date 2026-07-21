@@ -10,7 +10,7 @@ const PrivateLabel = () => (
   <main data-testid="private-label-page">
     <PageHero
       eyebrow="Private Label"
-      title="Build your brand with KREVION"
+      title="Build your brand with Exelvia"
       subtitle="End-to-end private label solutions — from custom branding and artwork to regulatory and international shipping coordination."
       image={IMAGES.packaging}
     />

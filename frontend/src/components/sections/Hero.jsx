@@ -35,7 +35,7 @@ const Hero = () => {
           </h1>
 
           <p className="mt-7 text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl">
-            KREVION Healthcare Pvt. Ltd. delivers internationally compliant pharmaceutical and healthcare products through innovation, quality assurance, and reliable global partnerships.
+            Exelvia Healthcare delivers internationally compliant pharmaceutical and healthcare products through innovation, quality assurance, and reliable global partnerships.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">

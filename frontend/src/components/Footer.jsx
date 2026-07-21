@@ -17,7 +17,7 @@ const Footer = () => {
     setLoading(true);
     try {
       await axios.post(`${API}/newsletter`, { email });
-      toast.success("Subscribed. Thank you for joining KREVION updates.");
+      toast.success("Subscribed. Thank you for joining Exelvia updates.");
       setEmail("");
     } catch (err) {
       if (err.response?.status === 409) toast.info("This email is already subscribed.");
@@ -32,13 +32,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="h-16 w-16 rounded-xl bg-white p-2 shadow-lg flex items-center justify-center">
-                <img src={LOGO_URL} alt="KREVION Healthcare" className="h-full w-full object-contain" />
-              </div>
-              <div>
-                <div className="font-heading font-bold text-xl">KREVION</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-krevion-accent font-semibold">Healthcare Pvt. Ltd.</div>
+            <Link to="/" className="inline-flex items-center mb-6">
+              <div className="rounded-xl bg-white px-4 py-3 shadow-lg inline-flex items-center">
+                <img src={LOGO_URL} alt="Exelvia Healthcare" className="h-8 w-auto object-contain" />
               </div>
             </Link>
             <p className="text-sm text-white/70 leading-relaxed">
@@ -112,7 +108,7 @@ const Footer = () => {
 
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
-          <div>© {new Date().getFullYear()} KREVION Healthcare Pvt. Ltd. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Exelvia Healthcare. All rights reserved.</div>
           <div className="flex gap-6">
             <Link to="#" className="hover:text-krevion-teal">Privacy Policy</Link>
             <Link to="#" className="hover:text-krevion-teal">Terms of Use</Link>

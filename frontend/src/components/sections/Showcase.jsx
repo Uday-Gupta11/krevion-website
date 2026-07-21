@@ -94,7 +94,7 @@ export const CTASection = () => (
       <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?crop=entropy&cs=srgb&fm=jpg&q=85&w=2000" alt="" className="w-full h-full object-cover" />
     </div>
     <div className="relative max-w-5xl mx-auto px-6 lg:px-12 text-center">
-      <div className="text-xs uppercase tracking-[0.25em] text-krevion-accent font-semibold mb-5">Partner With KREVION</div>
+      <div className="text-xs uppercase tracking-[0.25em] text-krevion-accent font-semibold mb-5">Partner With Exelvia</div>
       <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
         Need a reliable pharmaceutical export partner?
       </h2>

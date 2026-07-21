@@ -36,9 +36,9 @@ const Section = ({ id, eyebrow, title, subtitle, children, dark, bgClass = "" })
 export const CompanyOverview = () => (
   <Section
     id="overview"
-    eyebrow="About KREVION"
+    eyebrow="About Exelvia"
     title="An export-focused pharmaceutical company"
-    subtitle="KREVION Healthcare Pvt. Ltd. is an export-focused pharmaceutical company supplying high-quality formulations to healthcare providers, distributors and government tenders worldwide. We bring together rigorous quality systems, regulatory expertise and a partner-first mindset to make global healthcare sourcing more efficient, dependable and accessible."
+    subtitle="Exelvia Healthcare is an export-focused pharmaceutical company supplying high-quality formulations to healthcare providers, distributors and government tenders worldwide. We bring together rigorous quality systems, regulatory expertise and a partner-first mindset to make global healthcare sourcing more efficient, dependable and accessible."
   >
     <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger} className="grid md:grid-cols-3 gap-6 mt-4">
       {[
@@ -64,9 +64,9 @@ export const CompanyOverview = () => (
 export const WhyChoose = () => (
   <Section
     id="why-choose"
-    eyebrow="Why KREVION"
+    eyebrow="Why Exelvia"
     title="A reliable partner for global healthcare sourcing"
-    subtitle="Six commitments that define every KREVION engagement — from procurement to delivery at destination."
+    subtitle="Six commitments that define every Exelvia engagement — from procurement to delivery at destination."
     bgClass="bg-krevion-light"
   >
     <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="why-choose-grid">

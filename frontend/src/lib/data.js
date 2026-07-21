@@ -1,4 +1,4 @@
-// Static data for KREVION Healthcare website
+// Static data for Exelvia Healthcare website
 
 export const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -147,17 +147,17 @@ export const IMAGES = {
   worldmap: "https://images.unsplash.com/photo-1589519160732-57fc498494f8?crop=entropy&cs=srgb&fm=jpg&q=85&w=2000",
 };
 
-export const LOGO_URL = "https://customer-assets.emergentagent.com/job_c2d9f704-c676-4d32-a34a-6ca956c7e90f/artifacts/xhtvmn6x_KREVION%20HEALTHCARE%20LOGO.png";
+export const LOGO_URL = "/logo.png";
 
 export const COMPANY = {
-  name: "KREVION Healthcare Pvt. Ltd.",
+  name: "Exelvia Healthcare",
   tagline: "Precision. Purity. Progress.",
   promise: "Delivering Trusted Healthcare Solutions Beyond Borders.",
   vision: "To become a globally trusted healthcare export company, connecting quality pharmaceutical and healthcare products with markets worldwide through innovation, reliability, and ethical business practices.",
   mission: "Our mission is to deliver high-quality pharmaceutical and healthcare products that meet international standards while building long-term partnerships through transparency, timely delivery, regulatory compliance, and customer-focused service. By leveraging technology and AI-driven processes, we strive to make global healthcare sourcing more efficient, dependable, and accessible.",
   purpose: "Improving access to quality healthcare products across borders by connecting trusted manufacturers with healthcare providers, distributors, and governments worldwide.",
-  email: "info@krevionhealthcare.com",
+  email: "info@exelviahealthcare.com",
   phone: "+91 00000 00000",
   whatsapp: "+910000000000",
-  address: "KREVION Healthcare Pvt. Ltd., India",
+  address: "Exelvia Healthcare, India",
 };

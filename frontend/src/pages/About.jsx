@@ -20,7 +20,7 @@ const PageHero = ({ eyebrow, title, subtitle, image }) => (
 const About = () => (
   <main data-testid="about-page">
     <PageHero
-      eyebrow="About KREVION"
+      eyebrow="About Exelvia"
       title="A globally focused pharmaceutical export company"
       subtitle="Built on the values of precision, purity and progress — we connect quality healthcare products with markets worldwide."
       image={IMAGES.researcher}
@@ -32,7 +32,7 @@ const About = () => (
           <div className="text-xs uppercase tracking-[0.22em] text-krevion-teal font-semibold mb-4">Our Story</div>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-krevion-navy">Where ethics, science and access converge</h2>
           <p className="mt-6 text-gray-600 leading-relaxed">
-            KREVION was founded with a simple conviction: that high-quality medicines and healthcare products should travel freely across borders, supported by transparent processes and uncompromising standards. We work with internationally compliant manufacturing facilities, leverage technology and AI-driven processes, and build long-term partnerships rooted in trust.
+            Exelvia was founded with a simple conviction: that high-quality medicines and healthcare products should travel freely across borders, supported by transparent processes and uncompromising standards. We work with internationally compliant manufacturing facilities, leverage technology and AI-driven processes, and build long-term partnerships rooted in trust.
           </p>
           <p className="mt-4 text-gray-600 leading-relaxed">
             Our team brings together regulatory expertise, supply-chain rigour and a global mindset to make pharmaceutical sourcing simpler for distributors, hospital networks and governments worldwide.

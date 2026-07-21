@@ -31,7 +31,7 @@ const Contact = () => {
     <main data-testid="contact-page">
       <PageHero
         eyebrow="Get in Touch"
-        title="Talk to the KREVION team"
+        title="Talk to the Exelvia team"
         subtitle="Distributors, importers, hospital networks and tender authorities — we respond within one business day."
         image={IMAGES.researcher}
       />
@@ -53,7 +53,7 @@ const Contact = () => {
             </div>
             <div className="rounded-2xl overflow-hidden border border-gray-100 aspect-[4/3] bg-krevion-light flex items-center justify-center text-gray-400" data-testid="contact-map">
               <iframe
-                title="KREVION Location"
+                title="Exelvia Location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=72.0,18.8,73.2,19.4&layer=mapnik"
                 className="w-full h-full border-0"
                 loading="lazy"

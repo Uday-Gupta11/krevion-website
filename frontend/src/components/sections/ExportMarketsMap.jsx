@@ -105,7 +105,7 @@ export const ExportMarkets = () => (
       </motion.div>
 
       <div className="relative rounded-3xl border border-gray-100 bg-gradient-to-br from-krevion-light via-white to-krevion-light p-4 md:p-8 shadow-sm">
-        <svg viewBox="0 0 1000 500" className="w-full h-auto" data-testid="world-map-svg" role="img" aria-label="KREVION global export corridors from India">
+        <svg viewBox="0 0 1000 500" className="w-full h-auto" data-testid="world-map-svg" role="img" aria-label="Exelvia global export corridors from India">
           <defs>
             <radialGradient id="glowIndia" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#18B7B0" stopOpacity="0.9" />

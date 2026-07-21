@@ -45,7 +45,7 @@ export const TherapeuticSegments = () => (
     id="therapeutic"
     eyebrow="Therapeutic Segments"
     title="Coverage across leading therapy areas"
-    subtitle="From critical care to wellness, KREVION supports partners with formulations spanning seventeen therapeutic categories."
+    subtitle="From critical care to wellness, Exelvia supports partners with formulations spanning seventeen therapeutic categories."
     bgClass="bg-krevion-light"
   >
     <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3" data-testid="therapeutic-segments-grid">

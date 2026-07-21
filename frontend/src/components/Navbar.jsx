@@ -26,11 +26,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         <Link to="/" data-testid="nav-logo" className="flex items-center gap-3 group">
-          <img src={LOGO_URL} alt="KREVION Healthcare" className="h-12 w-12 object-contain" />
-          <div className="hidden sm:block leading-tight">
-            <div className="font-heading font-bold text-krevion-navy text-lg tracking-tight">KREVION</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-krevion-teal font-semibold">Healthcare</div>
-          </div>
+          <img src={LOGO_URL} alt="Exelvia Healthcare" className="h-9 sm:h-10 w-auto object-contain" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">

@@ -21,7 +21,7 @@ const Quality = () => (
           <div className="text-xs uppercase tracking-[0.22em] text-krevion-teal font-semibold mb-4">Quality Philosophy</div>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-krevion-navy">Built on documented systems, not promises</h2>
           <p className="mt-6 text-gray-600 leading-relaxed">
-            Every product KREVION exports passes through layered checks designed to align with internationally recognised pharmaceutical quality standards. From raw material qualification to finished-product stability, our processes prioritise traceability, batch integrity and customer-specific compliance.
+            Every product Exelvia exports passes through layered checks designed to align with internationally recognised pharmaceutical quality standards. From raw material qualification to finished-product stability, our processes prioritise traceability, batch integrity and customer-specific compliance.
           </p>
           <div className="grid grid-cols-2 gap-3 mt-8">
             {["Manufacturing Excellence", "Quality Assurance", "Regulatory Compliance", "Documentation Support"].map((l) => (

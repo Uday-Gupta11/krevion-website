@@ -41,7 +41,7 @@ const Regulatory = () => (
         <div className="mt-12 bg-krevion-light rounded-2xl p-7 border border-gray-100">
           <div className="text-xs uppercase tracking-[0.22em] text-krevion-teal font-semibold mb-3">Important Note</div>
           <p className="text-sm text-gray-600 leading-relaxed">
-            KREVION provides regulatory and documentation support for products manufactured in internationally compliant facilities under stringent pharmaceutical quality management systems. We do not claim ownership of third-party certificates. All certifications and approvals are attributed to the respective manufacturing facilities and authorities.
+            Exelvia provides regulatory and documentation support for products manufactured in internationally compliant facilities under stringent pharmaceutical quality management systems. We do not claim ownership of third-party certificates. All certifications and approvals are attributed to the respective manufacturing facilities and authorities.
           </p>
         </div>
       </div>
