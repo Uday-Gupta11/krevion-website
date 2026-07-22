@@ -44,7 +44,7 @@ const Contact = () => {
               <p className="text-sm text-white/75 mt-3">Reach out for product inquiries, partnerships and regulatory queries.</p>
               <div className="mt-7 space-y-5 text-sm">
                 <div className="flex items-start gap-3"><Mail className="h-5 w-5 text-krevion-accent mt-0.5" /><div><div className="text-[10px] uppercase tracking-[0.18em] text-krevion-accent font-semibold">Email</div><div>{COMPANY.email}</div></div></div>
-                <div className="flex items-start gap-3"><Phone className="h-5 w-5 text-krevion-accent mt-0.5" /><div><div className="text-[10px] uppercase tracking-[0.18em] text-krevion-accent font-semibold">Phone</div><div>{COMPANY.phone}</div></div></div>
+                <div className="flex items-start gap-3"><Phone className="h-5 w-5 text-krevion-accent mt-0.5" /><div><div className="text-[10px] uppercase tracking-[0.18em] text-krevion-accent font-semibold">Phone</div><div>{COMPANY.phone}</div><div>{COMPANY.phone2}</div><div>{COMPANY.phone3}</div></div></div>
                 <div className="flex items-start gap-3"><MapPin className="h-5 w-5 text-krevion-accent mt-0.5" /><div><div className="text-[10px] uppercase tracking-[0.18em] text-krevion-accent font-semibold">Address</div><div>{COMPANY.address}</div></div></div>
               </div>
               <a href={`https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer" data-testid="contact-whatsapp-btn" className="mt-7 inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-3 rounded-full transition-colors text-sm">

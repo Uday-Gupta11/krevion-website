@@ -4,8 +4,8 @@ import { ArrowUpRight, Radio } from "lucide-react";
 import { EXPORT_MARKETS } from "@/lib/data";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
-// Silhouette world map background — reliable CDN PNG (Pixabay, public domain)
-const WORLD_MAP_URL = "https://cdn.pixabay.com/photo/2013/07/12/13/04/world-146691_1280.png";
+// Silhouette world map background — Wikimedia Commons, public domain, full-bleed equirectangular (2:1)
+const WORLD_MAP_URL = "https://upload.wikimedia.org/wikipedia/commons/f/fd/World_map_blank_without_borders.svg";
 
 // Geo → SVG conversion (viewBox 1000x500 equirectangular)
 const toXY = (lat, lon) => ({
@@ -52,44 +52,6 @@ const curvePath = (from, to) => {
   return `M ${from.x} ${from.y} Q ${cx} ${cy} ${to.x} ${to.y}`;
 };
 
-// Dot-matrix silhouette world map — denser grid for high-detail look
-const DotMap = () => {
-  const CONTINENT_BOUNDS = [
-    { latMin: 25, latMax: 70, lonMin: -170, lonMax: -55 }, // N America
-    { latMin: -55, latMax: 12, lonMin: -82, lonMax: -35 }, // S America
-    { latMin: 36, latMax: 70, lonMin: -10, lonMax: 60 },    // Europe
-    { latMin: -35, latMax: 37, lonMin: -18, lonMax: 51 },   // Africa
-    { latMin: 5, latMax: 70, lonMin: 40, lonMax: 145 },     // Asia
-    { latMin: -11, latMax: 20, lonMin: 95, lonMax: 141 },   // SE Asia/Indonesia
-    { latMin: -40, latMax: -12, lonMin: 113, lonMax: 154 }, // Australia
-    { latMin: 15, latMax: 32, lonMin: -110, lonMax: -85 },  // Mexico/CA
-  ];
-  const EXCLUDE = [
-    // Rough exclusions for oceans between continents
-    { latMin: -55, latMax: 15, lonMin: -35, lonMax: -20 }, // Atlantic
-    { latMin: 10, latMax: 40, lonMin: 55, lonMax: 60 },
-  ];
-  const inLand = (lat, lon) => {
-    if (EXCLUDE.some(b => lat >= b.latMin && lat <= b.latMax && lon >= b.lonMin && lon <= b.lonMax)) return false;
-    return CONTINENT_BOUNDS.some(b => lat >= b.latMin && lat <= b.latMax && lon >= b.lonMin && lon <= b.lonMax);
-  };
-  const dots = [];
-  for (let lat = 72; lat >= -55; lat -= 2.2) {
-    for (let lon = -170; lon <= 175; lon += 2.2) {
-      if (inLand(lat, lon)) {
-        const { x, y } = toXY(lat, lon);
-        dots.push({ x, y, key: `${lat.toFixed(1)}_${lon.toFixed(1)}` });
-      }
-    }
-  }
-  return (
-    <g>
-      {dots.map(d => (
-        <circle key={d.key} cx={d.x} cy={d.y} r="1.4" fill="#0A2D6B" fillOpacity="0.32" />
-      ))}
-    </g>
-  );
-};
 
 export const ExportMarkets = () => (
   <section className="py-20 md:py-28 bg-white relative overflow-hidden">
@@ -105,7 +67,16 @@ export const ExportMarkets = () => (
       </motion.div>
 
       <div className="relative rounded-3xl border border-gray-100 bg-gradient-to-br from-krevion-light via-white to-krevion-light p-4 md:p-8 shadow-sm">
-        <svg viewBox="0 0 1000 500" className="w-full h-auto" data-testid="world-map-svg" role="img" aria-label="Exelvia global export corridors from India">
+        <div className="relative">
+          {/* Real world map image, aligned to the same 1000x500 equirectangular grid as the SVG overlay above it */}
+          <img
+            src={WORLD_MAP_URL}
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+            className="absolute inset-0 w-full h-full object-fill opacity-[0.4] pointer-events-none select-none"
+          />
+          <svg viewBox="0 0 1000 500" className="relative w-full h-auto" data-testid="world-map-svg" role="img" aria-label="Exelvia global export corridors from India">
           <defs>
             <radialGradient id="glowIndia" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#18B7B0" stopOpacity="0.9" />
@@ -125,8 +96,6 @@ export const ExportMarkets = () => (
             </filter>
           </defs>
 
-          {/* Dense dot-matrix silhouette world map */}
-          <DotMap />
 
           {/* Laser lines from India to each destination */}
           {DESTINATIONS.map((d, i) => {
@@ -172,7 +141,8 @@ export const ExportMarkets = () => (
             <animate attributeName="opacity" from="0.8" to="0" dur="1.8s" repeatCount="indefinite" />
           </circle>
           <text x={INDIA.x + 12} y={INDIA.y + 4} fontSize="14" fontWeight="700" fill="#0A2D6B" fontFamily="Poppins, sans-serif">India</text>
-        </svg>
+          </svg>
+        </div>
 
         <div className="absolute top-6 right-6 md:top-8 md:right-8 flex items-center gap-2 bg-white/90 backdrop-blur-xl border border-gray-100 rounded-full px-4 py-2 shadow-sm">
           <span className="relative flex h-2.5 w-2.5">

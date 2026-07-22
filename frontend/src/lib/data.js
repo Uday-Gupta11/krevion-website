@@ -157,7 +157,9 @@ export const COMPANY = {
   mission: "Our mission is to deliver high-quality pharmaceutical and healthcare products that meet international standards while building long-term partnerships through transparency, timely delivery, regulatory compliance, and customer-focused service. By leveraging technology and AI-driven processes, we strive to make global healthcare sourcing more efficient, dependable, and accessible.",
   purpose: "Improving access to quality healthcare products across borders by connecting trusted manufacturers with healthcare providers, distributors, and governments worldwide.",
   email: "info@exelviahealthcare.com",
-  phone: "+91 00000 00000",
-  whatsapp: "+910000000000",
+  phone: "+91 8126793622",
+  phone2: "+91 8383996912",
+  phone3: "+91 6395928864",
+  whatsapp: "+918126793622", // WhatsApp floating button connects to this number
   address: "Exelvia Healthcare, India",
 };
