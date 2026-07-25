@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import * as Icons from "lucide-react";
 import Section from "./CommonSections";
@@ -102,12 +103,12 @@ export const CTASection = () => (
         Whether you are a distributor, importer or government tender, we deliver internationally compliant products with the documentation you need.
       </p>
       <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="/quotation" data-testid="cta-quotation-btn" className="inline-flex items-center gap-2 bg-white text-krevion-navy font-semibold px-7 py-4 rounded-full hover:bg-krevion-teal hover:text-white hover:-translate-y-1 transition-all">
+        <Link to="/quotation" data-testid="cta-quotation-btn" className="inline-flex items-center gap-2 bg-white text-krevion-navy font-semibold px-7 py-4 rounded-full hover:bg-krevion-teal hover:text-white hover:-translate-y-1 transition-all">
           Request Quotation <Icons.ChevronRight className="h-4 w-4" />
-        </a>
-        <a href="/contact" data-testid="cta-partner-btn" className="inline-flex items-center gap-2 border-2 border-white/40 text-white font-semibold px-7 py-4 rounded-full hover:bg-white hover:text-krevion-navy hover:-translate-y-1 transition-all">
+        </Link>
+        <Link to="/contact" data-testid="cta-partner-btn" className="inline-flex items-center gap-2 border-2 border-white/40 text-white font-semibold px-7 py-4 rounded-full hover:bg-white hover:text-krevion-navy hover:-translate-y-1 transition-all">
           Become a Distribution Partner
-        </a>
+        </Link>
       </div>
     </div>
   </section>
