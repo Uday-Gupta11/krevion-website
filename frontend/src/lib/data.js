@@ -1,5 +1,6 @@
 // Static data for Exelvia Healthcare website
 import { BULK_PRODUCTS } from "./products-bulk";
+import { INHALER_PRODUCTS } from "./inhaler-products";
 
 export const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -81,6 +82,7 @@ export const MANUFACTURING_CAPABILITIES = [
   { slug: "gels", name: "Gels", technical: "Hydrogels & Organogels", icon: "Waves", iconImg: "/icons/gel.png", desc: "Transparent semi-solid gelling systems for topical delivery." },
   { slug: "eye-ear-drops", name: "Eye & Ear Drops", technical: "Ophthalmic & Otic Sterile Preparations", icon: "Eye", iconImg: "/icons/eye_drop.png", desc: "Isotonic buffered sterile solutions for ocular and auricular use." },
   { slug: "sachets", name: "Sachets", technical: "Unit-Dose Sachet & Stick-Pack Formulations", icon: "PackageOpen", iconImg: "/icons/sachet.png", desc: "Single-dose sachets for powders, granules and effervescent systems." },
+  { slug: "inhalers", name: "Inhalers", technical: "MDI, DPI & Soft Mist Inhalation Systems", icon: "Wind", iconImg: "/icons/inhaler.png", desc: "Metered-dose, dry-powder and soft-mist inhalers for respiratory therapy." },
 ];
 
 export const QUALITY_TIMELINE = [
@@ -131,6 +133,7 @@ export const PRODUCTS = [
   { id: "p019", name: "Calcium + Vitamin D3", generic: "Calcium Carbonate + Cholecalciferol", strength: "500 mg + 250 IU", form: "Tablet", category: "tablets", segment: "Orthopaedics", pack: "10 x 10 Blister", desc: "Bone health supplement." },
   { id: "p020", name: "Pediatric Drops", generic: "Paracetamol", strength: "100 mg/ml", form: "Oral Drops", category: "oral-liquids", segment: "Pediatrics", pack: "15 ml bottle", desc: "Pediatric antipyretic and analgesic oral drops." },
   ...BULK_PRODUCTS,
+  ...INHALER_PRODUCTS,
 ];
 
 export const IMAGES = {
