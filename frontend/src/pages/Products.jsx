@@ -56,6 +56,22 @@ const InquiryDialog = ({ product, open, onOpenChange }) => {
   );
 };
 
+const CompositionDialog = ({ product, open, onOpenChange }) => (
+  <Dialog open={open} onOpenChange={onOpenChange}>
+    <DialogContent data-testid="product-composition-dialog" className="sm:max-w-lg max-h-[80vh] overflow-y-auto">
+      <DialogHeader>
+        <DialogTitle className="font-heading text-krevion-navy">{product?.name}</DialogTitle>
+      </DialogHeader>
+      <div className="text-xs uppercase tracking-wider text-krevion-teal font-semibold mb-1">Full Composition</div>
+      <ul className="space-y-1.5 text-sm text-gray-700 border-t border-gray-100 pt-3">
+        {(product?.composition || []).map((line, i) => (
+          <li key={i} className="leading-snug">{line}</li>
+        ))}
+      </ul>
+    </DialogContent>
+  </Dialog>
+);
+
 const Products = () => {
   const [params, setParams] = useSearchParams();
   const [q, setQ] = useState("");
@@ -63,6 +79,13 @@ const Products = () => {
   const [seg, setSeg] = useState("all");
   const [selected, setSelected] = useState(null);
   const [open, setOpen] = useState(false);
+  const [compProduct, setCompProduct] = useState(null);
+  const [compOpen, setCompOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(30);
+
+  useEffect(() => {
+    setVisibleCount(30);
+  }, [q, cat, seg]);
 
   useEffect(() => {
     const c = params.get("cat");
@@ -123,10 +146,10 @@ const Products = () => {
             <button onClick={reset} data-testid="product-reset-filters" className="px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-krevion-navy hover:bg-krevion-light flex items-center gap-2"><X className="h-4 w-4" /> Reset</button>
           </div>
 
-          <div className="text-sm text-gray-500 mb-6" data-testid="product-result-count">Showing <span className="font-semibold text-krevion-navy">{list.length}</span> products</div>
+          <div className="text-sm text-gray-500 mb-6" data-testid="product-result-count">Showing <span className="font-semibold text-krevion-navy">{Math.min(visibleCount, list.length)}</span> of <span className="font-semibold text-krevion-navy">{list.length}</span> products</div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {list.map((p) => (
+            {list.slice(0, visibleCount).map((p) => (
               <motion.div key={p.id} variants={fadeUp} data-testid={`product-card-${p.id}`} className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all">
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="text-[10px] uppercase tracking-[0.2em] text-krevion-teal font-semibold">{p.form}</div>
@@ -139,16 +162,37 @@ const Products = () => {
                   <div><span className="text-gray-400">Pack</span><div className="text-krevion-dark font-medium">{p.pack}</div></div>
                 </div>
                 <p className="text-xs text-gray-600 mt-4 leading-relaxed">{p.desc}</p>
+                {p.composition && p.composition.length > 0 && (
+                  <button
+                    onClick={() => { setCompProduct(p); setCompOpen(true); }}
+                    data-testid={`product-composition-${p.id}`}
+                    className="mt-3 w-full text-xs font-semibold text-krevion-teal hover:text-krevion-navy underline underline-offset-2 text-left"
+                  >
+                    View full composition
+                  </button>
+                )}
                 <button
                   onClick={() => { setSelected(p); setOpen(true); }}
                   data-testid={`product-inquire-${p.id}`}
-                  className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-krevion-navy text-white text-sm font-semibold py-2.5 rounded-full hover:bg-krevion-teal transition-colors"
+                  className="mt-3 w-full inline-flex items-center justify-center gap-2 bg-krevion-navy text-white text-sm font-semibold py-2.5 rounded-full hover:bg-krevion-teal transition-colors"
                 >
                   <Mail className="h-4 w-4" /> Send Inquiry
                 </button>
               </motion.div>
             ))}
           </motion.div>
+
+          {visibleCount < list.length && (
+            <div className="text-center mt-10">
+              <button
+                onClick={() => setVisibleCount((v) => v + 30)}
+                data-testid="products-load-more"
+                className="px-8 py-3 bg-krevion-light text-krevion-navy font-semibold rounded-full hover:bg-krevion-teal hover:text-white transition-colors text-sm"
+              >
+                Load More Products
+              </button>
+            </div>
+          )}
 
           {list.length === 0 && (
             <div className="text-center py-20 text-gray-500" data-testid="product-empty-state">
@@ -160,6 +204,7 @@ const Products = () => {
       </section>
 
       {selected && <InquiryDialog product={selected} open={open} onOpenChange={setOpen} />}
+      {compProduct && <CompositionDialog product={compProduct} open={compOpen} onOpenChange={setCompOpen} />}
     </main>
   );
 };

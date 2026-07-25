@@ -15,7 +15,6 @@ export const ProductCategories = () => (
   >
     <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4" data-testid="product-categories-grid">
       {MANUFACTURING_CAPABILITIES.map((c) => {
-        const Ico = Icons[c.icon] || Icons.Pill;
         return (
           <motion.div key={c.slug} variants={fadeUp}>
             <Link
@@ -23,8 +22,8 @@ export const ProductCategories = () => (
               data-testid={`category-card-${c.slug}`}
               className="group block bg-white rounded-2xl border border-gray-100 p-5 hover:border-krevion-teal hover:shadow-lg transition-all duration-300 h-full"
             >
-              <div className="w-11 h-11 rounded-xl bg-krevion-light text-krevion-teal flex items-center justify-center mb-4 group-hover:bg-krevion-teal group-hover:text-white transition-colors">
-                <Ico className="h-5 w-5" strokeWidth={1.6} />
+              <div className="w-11 h-11 rounded-xl bg-krevion-light flex items-center justify-center mb-4 group-hover:bg-krevion-teal transition-colors p-2">
+                <img src={c.iconImg} alt="" aria-hidden="true" className="w-full h-full object-contain group-hover:brightness-0 group-hover:invert transition-all" />
               </div>
               <div className="font-heading font-semibold text-krevion-navy text-sm">{c.name}</div>
               <div className="text-[10px] uppercase tracking-wider text-krevion-teal font-semibold mt-0.5 mb-2 leading-tight line-clamp-2">{c.technical}</div>

@@ -1,4 +1,5 @@
 // Static data for Exelvia Healthcare website
+import { BULK_PRODUCTS } from "./products-bulk";
 
 export const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -70,16 +71,16 @@ export const THERAPEUTIC_SEGMENTS = [
 ];
 
 export const MANUFACTURING_CAPABILITIES = [
-  { slug: "tablets", name: "Tablets", technical: "Immediate & Modified-Release Solid Oral Dosage Forms", icon: "Pill", desc: "Film-coated, enteric-coated, sustained-release and bilayer tablet formulations." },
-  { slug: "capsules", name: "Capsules", technical: "Hard Gelatin & HPMC Vegetarian Capsules", icon: "Pill", desc: "Two-piece hard-shell capsules for powder, pellet and granule fills." },
-  { slug: "softgel-capsules", name: "Softgel Capsules", technical: "Soft Elastic Gelatin Encapsulation", icon: "Droplets", desc: "One-piece softgels for lipophilic APIs with enhanced bioavailability." },
-  { slug: "oral-liquids", name: "Oral Liquids", technical: "Solutions, Suspensions & Emulsions", icon: "Wine", desc: "Aqueous and non-aqueous oral liquid dosage forms with preservative systems." },
-  { slug: "dry-syrups", name: "Dry Syrups", technical: "Powder for Oral Suspension (POS)", icon: "Beaker", desc: "Reconstitution-ready powders yielding stable oral suspensions." },
-  { slug: "injectables", name: "Injectables", technical: "Sterile Parenteral Formulations", icon: "Syringe", desc: "Liquid ampoules, lyophilised vials and pre-filled sterile injectables." },
-  { slug: "ointments-creams", name: "Ointments & Creams", technical: "Semi-Solid Topical Preparations", icon: "PaintBucket", desc: "Hydrophobic and hydrophilic bases plus O/W and W/O emulsion creams." },
-  { slug: "gels", name: "Gels", technical: "Hydrogels & Organogels", icon: "Waves", desc: "Transparent semi-solid gelling systems for topical delivery." },
-  { slug: "eye-ear-drops", name: "Eye & Ear Drops", technical: "Ophthalmic & Otic Sterile Preparations", icon: "Eye", desc: "Isotonic buffered sterile solutions for ocular and auricular use." },
-  { slug: "sachets", name: "Sachets", technical: "Unit-Dose Sachet & Stick-Pack Formulations", icon: "PackageOpen", desc: "Single-dose sachets for powders, granules and effervescent systems." },
+  { slug: "tablets", name: "Tablets", technical: "Immediate & Modified-Release Solid Oral Dosage Forms", icon: "Pill", iconImg: "/icons/tablet.png", desc: "Film-coated, enteric-coated, sustained-release and bilayer tablet formulations." },
+  { slug: "capsules", name: "Capsules", technical: "Hard Gelatin & HPMC Vegetarian Capsules", icon: "Pill", iconImg: "/icons/capsule.png", desc: "Two-piece hard-shell capsules for powder, pellet and granule fills." },
+  { slug: "softgel-capsules", name: "Softgel Capsules", technical: "Soft Elastic Gelatin Encapsulation", icon: "Droplets", iconImg: "/icons/softgel.png", desc: "One-piece softgels for lipophilic APIs with enhanced bioavailability." },
+  { slug: "oral-liquids", name: "Oral Liquids", technical: "Solutions, Suspensions & Emulsions", icon: "Wine", iconImg: "/icons/oral_liquid.png", desc: "Aqueous and non-aqueous oral liquid dosage forms with preservative systems." },
+  { slug: "dry-syrups", name: "Dry Syrups", technical: "Powder for Oral Suspension (POS)", icon: "Beaker", iconImg: "/icons/dry_syrup.png", desc: "Reconstitution-ready powders yielding stable oral suspensions." },
+  { slug: "injectables", name: "Injectables", technical: "Sterile Parenteral Formulations", icon: "Syringe", iconImg: "/icons/injectable.png", desc: "Liquid ampoules, lyophilised vials and pre-filled sterile injectables." },
+  { slug: "ointments-creams", name: "Ointments & Creams", technical: "Semi-Solid Topical Preparations", icon: "PaintBucket", iconImg: "/icons/ointment.png", desc: "Hydrophobic and hydrophilic bases plus O/W and W/O emulsion creams." },
+  { slug: "gels", name: "Gels", technical: "Hydrogels & Organogels", icon: "Waves", iconImg: "/icons/gel.png", desc: "Transparent semi-solid gelling systems for topical delivery." },
+  { slug: "eye-ear-drops", name: "Eye & Ear Drops", technical: "Ophthalmic & Otic Sterile Preparations", icon: "Eye", iconImg: "/icons/eye_drop.png", desc: "Isotonic buffered sterile solutions for ocular and auricular use." },
+  { slug: "sachets", name: "Sachets", technical: "Unit-Dose Sachet & Stick-Pack Formulations", icon: "PackageOpen", iconImg: "/icons/sachet.png", desc: "Single-dose sachets for powders, granules and effervescent systems." },
 ];
 
 export const QUALITY_TIMELINE = [
@@ -100,7 +101,7 @@ export const EXPORT_MARKETS = [
 ];
 
 export const STATS = [
-  { value: 200, suffix: "+", label: "Product Portfolio" },
+  { value: 500, suffix: "+", label: "Product Portfolio" },
   { value: 17, suffix: "", label: "Therapeutic Categories" },
   { value: 30, suffix: "+", label: "Target Export Markets" },
   { value: 100, suffix: "%", label: "Quality-Driven Operations" },
@@ -129,6 +130,7 @@ export const PRODUCTS = [
   { id: "p018", name: "Chlorhexidine Mouthwash", generic: "Chlorhexidine Gluconate", strength: "0.2% w/v", form: "Mouthwash", category: "mouth-wash", segment: "ENT", pack: "150 ml bottle", desc: "Antiseptic mouthwash for oral hygiene." },
   { id: "p019", name: "Calcium + Vitamin D3", generic: "Calcium Carbonate + Cholecalciferol", strength: "500 mg + 250 IU", form: "Tablet", category: "tablets", segment: "Orthopaedics", pack: "10 x 10 Blister", desc: "Bone health supplement." },
   { id: "p020", name: "Pediatric Drops", generic: "Paracetamol", strength: "100 mg/ml", form: "Oral Drops", category: "oral-liquids", segment: "Pediatrics", pack: "15 ml bottle", desc: "Pediatric antipyretic and analgesic oral drops." },
+  ...BULK_PRODUCTS,
 ];
 
 export const IMAGES = {
