@@ -22,7 +22,7 @@ export const ProductCategories = () => (
               data-testid={`category-card-${c.slug}`}
               className="group block bg-white rounded-2xl border border-gray-100 p-5 hover:border-krevion-teal hover:shadow-lg transition-all duration-300 h-full"
             >
-              <div className="w-11 h-11 rounded-xl bg-krevion-light flex items-center justify-center mb-4 group-hover:bg-krevion-teal transition-colors p-2">
+              <div className="w-20 h-20 rounded-2xl bg-krevion-light flex items-center justify-center mb-4 group-hover:bg-krevion-teal transition-colors p-4">
                 <img src={c.iconImg} alt="" aria-hidden="true" className="w-full h-full object-contain group-hover:brightness-0 group-hover:invert transition-all" />
               </div>
               <div className="font-heading font-semibold text-krevion-navy text-sm">{c.name}</div>
