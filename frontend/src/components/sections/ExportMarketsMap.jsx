@@ -6,49 +6,37 @@ import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
 // Simplified real-continent silhouettes (lat/lon polygons), rendered locally — no external image dependency, always renders
 const CONTINENTS = [
-  // North America (incl. Greenland, Central America)
-  [[83,-60],[75,-75],[70,-95],[68,-125],[70,-140],[60,-141],[55,-133],[50,-128],[48,-124],[42,-124],
+  { name: "North America", label: true, labelPos: [48, -100], points: [[83,-60],[75,-75],[70,-95],[68,-125],[70,-140],[60,-141],[55,-133],[50,-128],[48,-124],[42,-124],
    [34,-120],[32,-117],[23,-110],[16,-95],[14,-92],[9,-83],[8,-77.5],[10,-85],[18,-88],[21,-97],
    [26,-97],[25,-80],[30,-81],[35,-75],[40,-74],[41,-70],[45,-67],[47,-52],[50,-56],[52,-56],[58,-63],
-   [60,-65],[63,-78],[68,-83],[70,-90],[75,-90],[82,-65],[83,-60]],
-  // Greenland
-  [[83,-32],[76,-20],[70,-22],[65,-40],[60,-45],[65,-53],[72,-55],[80,-40],[83,-32]],
-  // South America
-  [[12,-72],[11,-68],[10,-62],[5,-52],[0,-50],[-5,-35],[-8,-35],[-15,-39],[-23,-42],[-30,-51],
+   [60,-65],[63,-78],[68,-83],[70,-90],[75,-90],[82,-65],[83,-60]] },
+  { name: "Greenland", label: false, points: [[83,-32],[76,-20],[70,-22],[65,-40],[60,-45],[65,-53],[72,-55],[80,-40],[83,-32]] },
+  { name: "South America", label: true, labelPos: [-16, -62], points: [[12,-72],[11,-68],[10,-62],[5,-52],[0,-50],[-5,-35],[-8,-35],[-15,-39],[-23,-42],[-30,-51],
    [-34,-58],[-38,-58],[-42,-65],[-52,-68],[-55,-68],[-53,-72],[-45,-73],[-38,-73],[-30,-71],
-   [-23,-70],[-18,-70],[-14,-76],[-5,-81],[-3,-80],[0,-79],[3,-77],[6,-77],[8,-77],[10,-75],[12,-72]],
-  // Europe (incl. Scandinavia, western Russia)
-  [[43,-9],[40,-9],[36,-6],[36,0],[38,9],[38,15],[40,18],[40,22],[41,26],[41,29],[45,29],[45,36],
+   [-23,-70],[-18,-70],[-14,-76],[-5,-81],[-3,-80],[0,-79],[3,-77],[6,-77],[8,-77],[10,-75],[12,-72]] },
+  { name: "Europe", label: true, labelPos: [54, 20], points: [[43,-9],[40,-9],[36,-6],[36,0],[38,9],[38,15],[40,18],[40,22],[41,26],[41,29],[45,29],[45,36],
    [47,40],[50,40],[55,40],[60,40],[66,40],[68,33],[71,28],[71,20],[68,18],[65,12],[63,8],[60,5],
-   [58,7],[55,8],[52,4],[50,2],[48,-2],[44,-1],[43,-9]],
-  // Africa
-  [[37,10],[35,-6],[28,-13],[20,-17],[14,-17],[9,-14],[5,-10],[4,-8],[6,-3],[6,2],[4,8],[0,9],
+   [58,7],[55,8],[52,4],[50,2],[48,-2],[44,-1],[43,-9]] },
+  { name: "Africa", label: true, labelPos: [3, 21], points: [[37,10],[35,-6],[28,-13],[20,-17],[14,-17],[9,-14],[5,-10],[4,-8],[6,-3],[6,2],[4,8],[0,9],
    [-6,12],[-10,13],[-18,12],[-22,14],[-29,17],[-34,18],[-34,25],[-29,32],[-26,33],[-20,35],
    [-16,40],[-6,40],[-1,42],[2,45],[5,48],[11,51],[11,43],[12,43],[15,39],[18,37],[22,36],
-   [28,34],[31,32],[33,25],[32,20],[33,13],[37,10]],
-  // Middle East / Arabian Peninsula
-  [[37,26],[37,35],[42,36],[42,45],[38,48],[34,48],[30,48],[29,48],[26,50],[24,52],[23,54],
-   [22,59],[17,54],[13,44],[16,43],[18,41],[21,40],[25,35],[28,34],[31,33],[33,35],[37,26]],
-  // Asia (central, south, east — main landmass)
-  [[42,45],[45,48],[48,50],[50,55],[55,60],[60,65],[65,70],[70,80],[73,90],[73,100],[70,110],
+   [28,34],[31,32],[33,25],[32,20],[33,13],[37,10]] },
+  { name: "Middle East", label: false, points: [[37,26],[37,35],[42,36],[42,45],[38,48],[34,48],[30,48],[29,48],[26,50],[24,52],[23,54],
+   [22,59],[17,54],[13,44],[16,43],[18,41],[21,40],[25,35],[28,34],[31,33],[33,35],[37,26]] },
+  { name: "Asia", label: true, labelPos: [48, 95], points: [[42,45],[45,48],[48,50],[50,55],[55,60],[60,65],[65,70],[70,80],[73,90],[73,100],[70,110],
    [68,140],[65,150],[60,160],[55,163],[50,157],[45,140],[43,132],[40,124],[38,123],[35,120],
    [32,121],[28,121],[23,117],[22,114],[21,108],[18,106],[10,106],[8,104],[10,98],[13,98],
    [16,94],[20,93],[22,88],[22,90],[24,68],[24,66],[25,62],[27,61],[30,55],[33,48],[36,45],
-   [38,48],[42,45]],
-  // Indonesia / Malay archipelago
-  [[6,95],[5,98],[1,104],[3,109],[1,111],[-4,105],[-6,106],[-8,114],[-9,119],[-9,124],[-9,131],
-   [-8,140],[-2,141],[0,133],[2,128],[5,120],[7,117],[6,109],[7,99],[6,95]],
-  // Philippines
-  [[19,121],[18,122],[14,121],[10,123],[9,126],[6,122],[7,120],[9,118],[12,120],[15,120],[19,121]],
-  // Japan
-  [[45,142],[43,140],[41,140],[38,139],[35,133],[33,130],[31,130],[32,132],[35,136],[38,141],
-   [41,141],[43,145],[45,142]],
-  // Australia
-  [[-11,131],[-12,136],[-12,142],[-14,144],[-17,146],[-20,148],[-24,153],[-28,153],[-32,152],
+   [38,48],[42,45]] },
+  { name: "Indonesia", label: false, points: [[6,95],[5,98],[1,104],[3,109],[1,111],[-4,105],[-6,106],[-8,114],[-9,119],[-9,124],[-9,131],
+   [-8,140],[-2,141],[0,133],[2,128],[5,120],[7,117],[6,109],[7,99],[6,95]] },
+  { name: "Philippines", label: false, points: [[19,121],[18,122],[14,121],[10,123],[9,126],[6,122],[7,120],[9,118],[12,120],[15,120],[19,121]] },
+  { name: "Japan", label: false, points: [[45,142],[43,140],[41,140],[38,139],[35,133],[33,130],[31,130],[32,132],[35,136],[38,141],
+   [41,141],[43,145],[45,142]] },
+  { name: "Australia", label: true, labelPos: [-25, 134], points: [[-11,131],[-12,136],[-12,142],[-14,144],[-17,146],[-20,148],[-24,153],[-28,153],[-32,152],
    [-35,150],[-38,147],[-39,143],[-38,140],[-35,136],[-33,134],[-32,127],[-31,119],[-27,113],
-   [-24,113],[-21,114],[-18,122],[-16,123],[-14,126],[-11,131]],
-  // New Zealand
-  [[-34,173],[-37,175],[-39,177],[-41,175],[-41,173],[-44,171],[-46,167],[-44,169],[-40,173],[-34,173]],
+   [-24,113],[-21,114],[-18,122],[-16,123],[-14,126],[-11,131]] },
+  { name: "New Zealand", label: false, points: [[-34,173],[-37,175],[-39,177],[-41,175],[-41,173],[-44,171],[-46,167],[-44,169],[-40,173],[-34,173]] },
 ];
 
 const continentPath = (points) => {
@@ -56,11 +44,45 @@ const continentPath = (points) => {
   return `M ${first.x} ${first.y} ` + rest.map((p) => `L ${p.x} ${p.y}`).join(" ") + " Z";
 };
 
-const WorldMapBase = () => (
+const WorldMapBase = ({ hoveredContinent, onHover, onLeave }) => (
   <g>
-    {CONTINENTS.map((pts, i) => (
-      <path key={i} d={continentPath(pts)} fill="#0A2D6B" fillOpacity="0.12" stroke="#0A2D6B" strokeOpacity="0.22" strokeWidth="1" strokeLinejoin="round" />
-    ))}
+    {/* Ocean background */}
+    <rect x="0" y="0" width="1000" height="500" rx="18" fill="url(#oceanGradient)" />
+    {CONTINENTS.map((c, i) => {
+      const isHovered = hoveredContinent === c.name;
+      const labelXY = c.labelPos ? toXY(c.labelPos[0], c.labelPos[1]) : null;
+      return (
+        <g key={i}>
+          <path
+            d={continentPath(c.points)}
+            fill={isHovered ? "#2F855A" : "#3F9B5F"}
+            fillOpacity={isHovered ? 0.95 : 0.82}
+            stroke="#256B45"
+            strokeOpacity="0.6"
+            strokeWidth="1"
+            strokeLinejoin="round"
+            style={{ cursor: "pointer", transition: "fill-opacity 0.2s" }}
+            onMouseEnter={() => onHover(c.name)}
+            onMouseLeave={onLeave}
+          />
+          {c.label && labelXY && (
+            <text
+              x={labelXY.x}
+              y={labelXY.y}
+              fontSize="13"
+              fontWeight="700"
+              fill="#ffffff"
+              fontFamily="Poppins, sans-serif"
+              textAnchor="middle"
+              opacity="0.85"
+              style={{ pointerEvents: "none", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+            >
+              {c.name}
+            </text>
+          )}
+        </g>
+      );
+    })}
   </g>
 );
 
@@ -112,6 +134,7 @@ const curvePath = (from, to) => {
 
 export const ExportMarkets = () => {
   const [hovered, setHovered] = useState(null);
+  const [hoveredContinent, setHoveredContinent] = useState(null);
 
   return (
   <section className="py-20 md:py-28 bg-white relative overflow-hidden">
@@ -129,6 +152,10 @@ export const ExportMarkets = () => {
       <div className="relative rounded-3xl border border-gray-100 bg-gradient-to-br from-krevion-light via-white to-krevion-light p-4 md:p-8 shadow-sm">
         <svg viewBox="0 0 1000 500" className="w-full h-auto" data-testid="world-map-svg" role="img" aria-label="Exelvia global export corridors from India">
           <defs>
+            <linearGradient id="oceanGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#BEE3F8" />
+              <stop offset="100%" stopColor="#90CDF4" />
+            </linearGradient>
             <radialGradient id="glowIndia" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#18B7B0" stopOpacity="0.9" />
               <stop offset="100%" stopColor="#18B7B0" stopOpacity="0" />
@@ -148,7 +175,7 @@ export const ExportMarkets = () => {
           </defs>
 
           {/* Real continent silhouettes — drawn locally, no external image, always renders */}
-          <WorldMapBase />
+          <WorldMapBase hoveredContinent={hoveredContinent} onHover={setHoveredContinent} onLeave={() => setHoveredContinent(null)} />
 
           {/* Laser lines from India to each destination */}
           {DESTINATIONS.map((d, i) => {
