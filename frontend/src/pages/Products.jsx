@@ -21,6 +21,12 @@ const InquiryDialog = ({ product, open, onOpenChange }) => {
     try {
       await axios.post(`${API}/product-inquiry`, { ...form, product_id: product.id, product_name: product.name });
       toast.success("Inquiry sent. Our team will contact you shortly.");
+
+      // Open WhatsApp with a pre-filled message to the business number so the team gets notified instantly.
+      // (True silent/automatic sending needs the paid WhatsApp Business API — this click-to-send approach works without it.)
+      const waMessage = `New product inquiry from ${form.name} (${form.company || "N/A"})\nProduct: ${product.name}\nEmail: ${form.email}\nCountry: ${form.country || "N/A"}\nDetails: ${form.message || "N/A"}`;
+      window.open(`https://wa.me/918126793622?text=${encodeURIComponent(waMessage)}`, "_blank", "noopener,noreferrer");
+
       onOpenChange(false);
       setForm({ name: "", email: "", company: "", country: "", message: "" });
     } catch {

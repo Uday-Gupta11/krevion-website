@@ -22,6 +22,11 @@ const Quotation = () => {
       await axios.post(`${API}/quotation`, form);
       setDone(true);
       toast.success("Quotation request submitted.");
+
+      // Open WhatsApp with a pre-filled message to the business number for instant notification.
+      const waMessage = `New quotation request from ${form.name} (${form.company})\nCountry: ${form.country}\nEmail: ${form.email}\nPhone: ${form.phone || "N/A"}\nCategory: ${form.product_category || "N/A"}\nProducts: ${form.required_products}\nQuantity: ${form.quantity || "N/A"}\nTarget market: ${form.target_market || "N/A"}\nNotes: ${form.notes || "N/A"}`;
+      window.open(`https://wa.me/918126793622?text=${encodeURIComponent(waMessage)}`, "_blank", "noopener,noreferrer");
+
       setForm({ name: "", company: "", country: "", phone: "", email: "", product_category: "", required_products: "", quantity: "", target_market: "", notes: "" });
     } catch {
       toast.error("Unable to submit. Please try again.");
