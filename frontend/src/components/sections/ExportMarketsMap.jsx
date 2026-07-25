@@ -46,22 +46,21 @@ const continentPath = (points) => {
 
 const WorldMapBase = ({ hoveredContinent, onHover, onLeave }) => (
   <g>
-    {/* Ocean background */}
+    {/* Ocean background — clean white/soft grey */}
     <rect x="0" y="0" width="1000" height="500" rx="18" fill="url(#oceanGradient)" />
     {CONTINENTS.map((c, i) => {
       const isHovered = hoveredContinent === c.name;
       const labelXY = c.labelPos ? toXY(c.labelPos[0], c.labelPos[1]) : null;
       return (
-        <g key={i}>
+        <g key={i} filter="url(#landShadow)">
           <path
             d={continentPath(c.points)}
-            fill={isHovered ? "#2F855A" : "#3F9B5F"}
-            fillOpacity={isHovered ? 0.95 : 0.82}
-            stroke="#256B45"
-            strokeOpacity="0.6"
+            fill={isHovered ? "url(#landHoverGradient)" : "url(#landGradient)"}
+            stroke={isHovered ? "#0F8F89" : "#0A2D6B"}
+            strokeOpacity="0.5"
             strokeWidth="1"
             strokeLinejoin="round"
-            style={{ cursor: "pointer", transition: "fill-opacity 0.2s" }}
+            style={{ cursor: "pointer", transition: "all 0.2s" }}
             onMouseEnter={() => onHover(c.name)}
             onMouseLeave={onLeave}
           />
@@ -74,8 +73,8 @@ const WorldMapBase = ({ hoveredContinent, onHover, onLeave }) => (
               fill="#ffffff"
               fontFamily="Poppins, sans-serif"
               textAnchor="middle"
-              opacity="0.85"
-              style={{ pointerEvents: "none", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+              opacity="0.92"
+              style={{ pointerEvents: "none" }}
             >
               {c.name}
             </text>
@@ -153,9 +152,20 @@ export const ExportMarkets = () => {
         <svg viewBox="0 0 1000 500" className="w-full h-auto" data-testid="world-map-svg" role="img" aria-label="Exelvia global export corridors from India">
           <defs>
             <linearGradient id="oceanGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#BEE3F8" />
-              <stop offset="100%" stopColor="#90CDF4" />
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#EAF1F8" />
             </linearGradient>
+            <linearGradient id="landGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#1E4C8C" />
+              <stop offset="100%" stopColor="#0A2D6B" />
+            </linearGradient>
+            <linearGradient id="landHoverGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#22C5BD" />
+              <stop offset="100%" stopColor="#0F8F89" />
+            </linearGradient>
+            <filter id="landShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" floodColor="#0A2D6B" floodOpacity="0.35" />
+            </filter>
             <radialGradient id="glowIndia" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#18B7B0" stopOpacity="0.9" />
               <stop offset="100%" stopColor="#18B7B0" stopOpacity="0" />
