@@ -37,6 +37,7 @@ const CONTINENTS = [
    [-35,150],[-38,147],[-39,143],[-38,140],[-35,136],[-33,134],[-32,127],[-31,119],[-27,113],
    [-24,113],[-21,114],[-18,122],[-16,123],[-14,126],[-11,131]] },
   { name: "New Zealand", label: false, points: [[-34,173],[-37,175],[-39,177],[-41,175],[-41,173],[-44,171],[-46,167],[-44,169],[-40,173],[-34,173]] },
+  { name: "Antarctica", label: false, points: [[-70,-150],[-72,-100],[-75,-50],[-73,0],[-75,50],[-72,100],[-70,150],[-68,180],[-68,-180],[-68,-150],[-70,-150]] },
 ];
 
 const continentPath = (points) => {
@@ -182,7 +183,12 @@ export const ExportMarkets = () => {
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+            <clipPath id="mapClip">
+              <rect x="0" y="0" width="1000" height="500" rx="18" />
+            </clipPath>
           </defs>
+
+          <g clipPath="url(#mapClip)">
 
           {/* Real continent silhouettes — drawn locally, no external image, always renders */}
           <WorldMapBase hoveredContinent={hoveredContinent} onHover={setHoveredContinent} onLeave={() => setHoveredContinent(null)} />
@@ -234,14 +240,16 @@ export const ExportMarkets = () => {
             );
           })}
 
-          {/* India origin — bigger, glowing */}
-          <circle cx={INDIA.x} cy={INDIA.y} r="38" fill="url(#glowIndia)" />
-          <circle cx={INDIA.x} cy={INDIA.y} r="7" fill="#0A2D6B" stroke="#18B7B0" strokeWidth="2" />
-          <circle cx={INDIA.x} cy={INDIA.y} r="7" fill="#18B7B0">
-            <animate attributeName="r" from="7" to="24" dur="1.8s" repeatCount="indefinite" />
+          {/* India origin — bigger, glowing, distinct gold accent so it never blends into the navy landmass */}
+          <circle cx={INDIA.x} cy={INDIA.y} r="42" fill="url(#glowIndia)" />
+          <circle cx={INDIA.x} cy={INDIA.y} r="10" fill="#F5A623" stroke="#ffffff" strokeWidth="2.5" />
+          <circle cx={INDIA.x} cy={INDIA.y} r="10" fill="#F5A623">
+            <animate attributeName="r" from="10" to="28" dur="1.8s" repeatCount="indefinite" />
             <animate attributeName="opacity" from="0.8" to="0" dur="1.8s" repeatCount="indefinite" />
           </circle>
-          <text x={INDIA.x + 12} y={INDIA.y + 4} fontSize="14" fontWeight="700" fill="#0A2D6B" fontFamily="Poppins, sans-serif">India</text>
+          <rect x={INDIA.x + 14} y={INDIA.y - 12} width="52" height="22" rx="6" fill="#0A2D6B" />
+          <text x={INDIA.x + 40} y={INDIA.y + 4} fontSize="14" fontWeight="700" fill="#ffffff" fontFamily="Poppins, sans-serif" textAnchor="middle">India</text>
+          </g>
         </svg>
 
         {/* Interactive hover tooltip — positioned as % of the viewBox so it always lines up regardless of rendered size */}
