@@ -1,6 +1,7 @@
 // Static data for Exelvia Healthcare website
 import { BULK_PRODUCTS } from "./products-bulk";
 import { INHALER_PRODUCTS } from "./inhaler-products";
+import { NASAL_SPRAY_PRODUCTS } from "./nasal-spray-products";
 
 export const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -83,6 +84,7 @@ export const MANUFACTURING_CAPABILITIES = [
   { slug: "eye-ear-drops", name: "Eye & Ear Drops", technical: "Ophthalmic & Otic Sterile Preparations", icon: "Eye", iconImg: "/icons/eye_drop.png", desc: "Isotonic buffered sterile solutions for ocular and auricular use." },
   { slug: "sachets", name: "Sachets", technical: "Unit-Dose Sachet & Stick-Pack Formulations", icon: "PackageOpen", iconImg: "/icons/sachet.png", desc: "Single-dose sachets for powders, granules and effervescent systems." },
   { slug: "inhalers", name: "Inhalers", technical: "MDI, DPI & Soft Mist Inhalation Systems", icon: "Wind", iconImg: "/icons/inhaler.png", desc: "Metered-dose, dry-powder and soft-mist inhalers for respiratory therapy." },
+  { slug: "nasal-sprays", name: "Nasal Sprays", technical: "Metered Nasal Pump & Spray Formulations", icon: "Droplets", iconImg: "/icons/nasal_spray.png", desc: "Saline, decongestant, corticosteroid and specialty intranasal spray formulations." },
 ];
 
 export const QUALITY_TIMELINE = [
@@ -134,6 +136,7 @@ export const PRODUCTS = [
   { id: "p020", name: "Pediatric Drops", generic: "Paracetamol", strength: "100 mg/ml", form: "Oral Drops", category: "oral-liquids", segment: "Pediatrics", pack: "15 ml bottle", desc: "Pediatric antipyretic and analgesic oral drops." },
   ...BULK_PRODUCTS,
   ...INHALER_PRODUCTS,
+  ...NASAL_SPRAY_PRODUCTS,
 ];
 
 export const IMAGES = {
